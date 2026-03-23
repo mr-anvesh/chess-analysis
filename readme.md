@@ -1,49 +1,77 @@
-# Chess Game Analysis Tool
+---
+title: 'Chess Game Analysis Tool'
+description: 'A free chess analysis platform that classifies moves and generates interactive game reports from PGN, Chess.com, and Lichess games.'
+image: '/project/image.png'
+technologies:
+  - 'Node.js'
+  - 'TypeScript'
+  - 'Express'
+  - 'Chess.js'
+  - 'Stockfish'
+  - 'PGN Parser'
+  - 'HTML'
+  - 'CSS'
+  - 'JavaScript'
+  - 'jQuery'
+  - 'Docker'
+github: 'https://github.com/mr-anvesh/chess-analysis'
+live: 'Self-hosted / local deployment'
+timeline: 'N/A'
+role: 'Full Stack'
+team: 'Solo'
+status: 'completed'
+featured: true
+challenges:
+  - 'Move Classification'
+  - 'Engine Fallback'
+  - 'PGN Parsing'
+  - 'External API Integration'
+  - 'Performance Optimization'
+  - 'Client-Server Coordination'
+learnings:
+  - 'Chess Engine Integration'
+  - 'Move Evaluation Heuristics'
+  - 'TypeScript Backend Development'
+  - 'API Consumption'
+  - 'Dockerized Deployment'
+  - 'Resilient Fallback Handling'
+isPublished: true
+---
 
-Generate classifications for your Chess moves, for free.
-<br><br>
-Enter a game by its PGN or pick a game from your Chess.com / Lichess.org account and have it analysed so that you can see where your mistakes and brilliancies are.
+# Chess Game Analysis Tool: Free Chess Move Classification and Game Reports
 
-**ANNOUNCEMENT**<br>
-This project is currently closed to further contributions - we are working on rebuilding the website from the ground up :)
+## Overview
+Chess Game Analysis Tool - A web app that analyzes chess games and classifies each move so players can quickly understand mistakes, inaccuracies, and brilliancies.
 
-## Running locally
-### Prerequisites
-- Node.js 20.x runtime or later.
-- TypeScript package installed globally.
+## What Users Can Do
+Feature 1: Paste PGN and analyze a full chess game move by move.
+Feature 2: Import games directly from Chess.com or Lichess accounts.
+Feature 3: View interactive reports with move classifications, board state, and evaluation trends.
 
-### Starting application
-- Download the source code using `git clone` or download as ZIP.
-- Open the root directory of the project in a terminal.
-- Run `npm i` to install all of the necessary dependencies.
-- Create a file called `.env` in the root directory of the project.
-- Choose a port for the webserver by adding `PORT=<some port>` to the file.
-- If you want to use a CAPTCHA:
-    - Add your client secret as `RECAPTCHA_SECRET=<secret>` to the .env file
-    - Open `src/public/pages/report/index.html`, find `data-sitekey` and replace the value with your reCAPTCHA public site key
-- Run `npm start` to compile TypeScript and start the webserver.
+## Why I built this
+I built this platform to solve a fundamental issue I faced while studying:
+Difficulty in getting detailed post-game move-quality feedback without paid tools.
+Need for a fast and simple workflow to analyze games from common chess platforms.
 
-### NPM Scripts
-- `npm start` - Compiles TypeScript and starts the webserver.
-- `npm run build` - Compiles TypeScript.
-- `npm run test` - Generates reports from some sample evaluations for classification testing at `src/test/reports`.
+## Tech Stack
+Node.js
+TypeScript
+Express
+Chess.js
+Stockfish
+PGN Parser
+HTML
+CSS
+JavaScript
+jQuery
+Docker
 
-## Running in Docker
-### Prerequisites
-- Docker installed on the server
+## After launch & Impact
+Made move-quality analysis accessible for free to players who want to improve.
+Built a practical end-to-end chess analysis workflow from PGN ingestion to report generation.
+Improved understanding of combining chess engines, game parsing, and report UX in one product.
 
-### Build a Docker image
-- Download the source code using `git clone` or download as ZIP.
-- Open the root directory of the project in a terminal.
-- Create a file called `.env` in the root directory of the project.
-- If you want to use a CAPTCHA:
-    - Add your client secret as `RECAPTCHA_SECRET=<secret>` to the .env file
-    - Open `src/public/pages/report/index.html`, find `data-sitekey` and replace the value with your reCAPTCHA public site key
-- Run `sudo docker build . -t chess-analysis` to build the image
-
-### Start a Docker container with the chess-analysis image
-- Run `sudo docker run -d -P chess-analysis`
-- If you wish to choose the port instead of Docker choosing one for you, replace `-P` with `-p <port>:80`
-
-## Support the Project
-If you find this tool useful and would like to support its development, any contributions are greatly appreciated ❤️
+## Future Plans
+Improve engine accuracy and performance tuning for deeper analysis.
+Add richer player insights and comparative game statistics.
+Expand deployment options and improve production-readiness for broader usage.
