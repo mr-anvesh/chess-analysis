@@ -1,3 +1,4 @@
+---
 title: 'Chess Game Analysis Tool'
 description: 'A free chess analysis platform that classifies moves and generates interactive game reports from PGN, Chess.com, and Lichess games.'
 image: '/project/image.png'
@@ -35,6 +36,7 @@ learnings:
   - 'Dockerized Deployment'
   - 'Resilient Fallback Handling'
 isPublished: true
+---
 
 # Chess Game Analysis Tool: Free Chess Move Classification and Game Reports
 
@@ -46,8 +48,8 @@ Feature 1: Paste PGN and analyze a full chess game move by move.
 Feature 2: Import games directly from Chess.com or Lichess accounts.
 Feature 3: View interactive reports with move classifications, board state, and evaluation trends.
 
-## Why i built this
-I built this platform to solve a fundamental issue i faced while studying as follows -
+## Why I built this
+I built this platform to solve a fundamental issue I faced while studying:
 Difficulty in getting detailed post-game move-quality feedback without paid tools.
 Need for a fast and simple workflow to analyze games from common chess platforms.
 
