@@ -10,22 +10,26 @@ const app = express();
 app.use(express.json());
 
 app.use("/static",
-    express.static("dist/public"),
-    express.static("src/public")
+    express.static(path.resolve(process.cwd(), "dist/public")),
+    express.static(path.resolve(process.cwd(), "src/public"))
 );
 
 app.use("/api", apiRouter);
 
 app.get("/", async (req, res) => {
-    res.sendFile(path.resolve("src/public/pages/report/index.html"));
+    res.sendFile(path.resolve(process.cwd(), "src/public/pages/report/index.html"));
 });
 
 app.get("/privacy", async (req, res) => {
-    res.sendFile(path.resolve("src/public/pages/privacy/index.html"));
+    res.sendFile(path.resolve(process.cwd(), "src/public/pages/privacy/index.html"));
 });
 
 const port = process.env.PORT || "3000";
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}.`);
-});
+if (!process.env.VERCEL) {
+    app.listen(port, () => {
+        console.log(`Server running on port ${port}.`);
+    });
+}
+
+export default app;
