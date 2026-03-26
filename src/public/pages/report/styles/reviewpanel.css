@@ -10,13 +10,16 @@
 #review-panel {
     display: grid;
     grid-template-columns: 100%;
-    background-color: var(--secondary-color);
-    border: 2px solid var(--border-color);
-    border-radius: 10px;
-    padding: 1% 0px 0px 0px;
-    height: 90vh;
-    width: 450px;
-    margin-left: 30px;
+    background-color: var(--panel-bg);
+    border-left: 1px solid var(--border-color);
+    padding: 0;
+    height: 100vh;
+    width: 550px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin: 0;
+    z-index: 10;
 }
 
 @media (min-width: 1264px) {
@@ -74,42 +77,18 @@
     text-align: center;
     user-select: none;
     width: 90%;
-    border-radius: 10px;
-    color: white;
+    border-radius: 8px;
+    color: var(--text-main);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4caf50;
-}
-
-.usernameVerifyBtn {
-    font-size: 20px;
-    background-color: var(--secondary-color);
-    border: none;
-    cursor: pointer;
-}
-
-.usernameVerifyBtn {
     background-color: var(--primary-color);
-    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    padding: 8px 0;
+    margin-bottom: 15px !important;
 }
 
-#fetch-account-games-button {
-    display: none;
-    transform: translateY(-2px);
-    position: absolute;
-    top: 8px;
-    right: 27%;
-    margin-top: 4px;
-    height: 40px;
-    width: 10%;
-}
 
-@media (max-width: 1264px) {
-    #review-panel-title {
-        font-size: 27px;
-    }
-}
 
 /*
     GAME LOAD TYPE DROPDOWN
@@ -139,7 +118,7 @@
 #load-type-dropdown {
     border-radius: 10px;
     background-color: var(--border-color);
-    color: white;
+    color: var(--text-main);
     font-weight: 100;
     border: none;
     outline: none;
@@ -158,54 +137,76 @@
 .gameInputContainer,
 .gameInputContainer2 {
     display: flex;
-    align-items: flex-start;
-    width: 100%;
-    height: 49.5px;
+    align-items: center;
+    width: 90%;
+    height: 50px;
+    margin: 5px 0;
 }
 
 #gameInputContainer2 {
     display: none;
-    width: 100%;
+    position: relative;
 }
 
 /*
     PGN INPUT TEXTAREA
 */
-
 #pgn {
-    width: 80% !important;
-    margin-left: 5%;
+    width: 100% !important;
+    margin-left: 0;
     height: 100%;
     border: none;
     font-size: 16px;
     outline: none;
     padding: 15px;
-    margin-top: 5px;
+    margin-top: 0;
     resize: none;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: var(--border-color);
+    color: var(--text-main);
+}
+
+#pgn::placeholder,
+#chess-site-username::placeholder {
+    color: var(--text-muted);
 }
 
 /*
     CHESS.COM / LICHES USERNAME INPUT TEXTAREA
 */
-#gameInputContainer2 {
-    position: relative;
-}
-
 #chess-site-username {
+    flex-grow: 1;
     font-size: 16px;
-    width: 80%;
     height: 100%;
     padding: 15px;
     outline: none;
-    margin-left: 5%;
+    margin-left: 0;
     border: none;
-    border-radius: 10px;
-    margin-top: 5px;
+    border-radius: 8px 0 0 8px;
+    margin-top: 0;
     background-color: var(--border-color);
+    color: var(--text-main);
     resize: none;
     overflow: hidden;
+}
+
+#fetch-account-games-button {
+    display: none;
+    position: static;
+    transform: none;
+    margin-top: 0;
+    height: 100%;
+    width: 50px;
+    border-radius: 0 8px 8px 0;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+#fetch-account-games-button:hover {
+    background-color: var(--accent-hover);
 }
 
 .knight {
@@ -221,35 +222,43 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-top: 15px;
-    padding: 10px 50px;
-    border-radius: 10px;
-    font-size: 20px;
-    background-color: var(--primary-color);
-    color: white;
-    text-shadow: 0px 1px 2px var(--border-color);
+    margin-top: 20px;
+    padding: 12px 50px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--accent-color);
+    color: #ffffff;
     width: 90%;
-    border: 2px solid #4caf50;
+    border: none;
     cursor: pointer;
     outline: none;
     user-select: none;
-    box-shadow: 0px 5px 0px rgb(76, 175, 80, 0.6);
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    transition: all 0.2s ease;
 }
 
 .review-button-disabled {
-    border: 2px solid gray !important;
-    box-shadow: 0px 5px 0px rgb(128, 128, 128, 0.6) !important;
+    background-color: var(--border-color) !important;
+    color: var(--text-muted) !important;
+    box-shadow: none !important;
+    cursor: not-allowed;
 }
 
-#review-button:active {
-    box-shadow: 0px 0px 0px;
-    transform: translateY(5px);
+#review-button:active:not(.review-button-disabled) {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px);
+}
+
+#review-button:hover:not(.review-button-disabled) {
+    background-color: var(--accent-hover);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
 }
 
 .big-depth-container {
     width: 90%;
     padding: 10px;
-    color: white;
+    color: var(--text-main);
     display: flex;
     bottom: 0px;
     border-radius: 10px;
@@ -424,6 +433,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--text-main);
 }
 
 /*
@@ -458,7 +468,7 @@
     display: none;
     text-align: center;
     background-color: var(--primary-color);
-    color: white !important;
+    color: var(--text-main) !important;
     border-radius: 10px;
     width: 90%;
     margin-top: 10px;

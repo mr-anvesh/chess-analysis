@@ -1,7 +1,16 @@
 body {
     margin: 0;
-    background-color: rgba(49, 51, 56, 255);
     width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#review-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100vw - 550px);
+    height: 100vh;
 }
 
 @media only screen and (max-width: 1536px) {
@@ -183,7 +192,7 @@ body {
 }
 
 .white {
-    color: white;
+    color: var(--text-main);
 }
 
 .footer {
@@ -194,5 +203,5 @@ body {
 }
 
 .footer a {
-    color: white;
+    color: var(--text-main);
 }

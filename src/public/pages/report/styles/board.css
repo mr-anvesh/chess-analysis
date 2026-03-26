@@ -1,5 +1,5 @@
 .profile {
-    color: white;
+    color: var(--text-main);
     font-size: 20px;
     background-color: var(--border-color);
     border-radius: 10px;
@@ -27,6 +27,7 @@
 #evaluation-bar {
     border: none;
     border-radius: 0.2rem;
+    height: calc(100vh - 120px);
 }
 
 #black-rect {
@@ -39,6 +40,8 @@
 
 #board {
     grid-column: 1 / 2;
-    width: 730px;
-    height: 730px;
+    height: calc(100vh - 120px);
+    width: calc(100vh - 120px);
+    max-width: 90vw;
+    max-height: 90vw;
 }

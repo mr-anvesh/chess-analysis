@@ -4,7 +4,7 @@ const blackRect = document.querySelector("#black-rect") as SVGRectElement;
 const whiteEvalText = document.querySelector("#white-eval-text") as SVGTextElement;
 const blackEvalText = document.querySelector("#black-eval-text") as SVGTextElement;
 
-const totalHeight = evaluationBar.clientHeight;
+const totalHeight = 730;
 
 function setEvalBarToWinner(winnerPlayer: "white" | "black") {
     if (boardFlipped) {

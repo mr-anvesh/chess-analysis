@@ -4,3 +4,5 @@ dist
 *.txt
 src/test/reports
 /.vs
+.agents
+skills-lock.json
