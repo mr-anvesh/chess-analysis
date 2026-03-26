@@ -221,11 +221,11 @@ loadTypeDropdown.on("input", () => {
 
     const isLong = selectedLoadType === "pgn" || selectedLoadType === "json";
     $("#pgn").css("display", isLong ? "block" : "none");
-    $("#chess-site-username, #fetch-account-games-button").css("display", isLong ? "none" : "block");
+    $("#chess-site-username, #fetch-account-games-button").css("display", isLong ? "none" : "flex");
     $("#review-button").toggleClass("review-button-disabled", !isLong);
 
-    $("#gameInputContainer").css("display", isLong ? "block" : "none");
-    $("#gameInputContainer2").css("display", isLong ? "none" : "block");
+    $("#gameInputContainer").css("display", isLong ? "flex" : "none");
+    $("#gameInputContainer2").css("display", isLong ? "none" : "flex");
 
     const placeholderText = (selectedLoadType === "json") ? "Enter JSON..." : "Enter PGN...";
     $("#pgn").attr("placeholder", placeholderText);

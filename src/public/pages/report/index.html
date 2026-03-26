@@ -71,26 +71,31 @@
                     <h1 class="logo" id="review-panel-title" class="white">
                         <i class="knight fa-solid fa-chess-knight" style="color: var(--text-main)"></i>Game Report
                     </h1>
-                    <div id="load-type-dropdown-container" class="white">
-                        <select id="load-type-dropdown">
-                            <option value="pgn">PGN</option>
-                            <option value="chesscom">Chess.com</option>
-                            <option value="lichess">Lichess.org</option>
-                            <option value="json">JSON</option>
-                        </select>
-                    </div>
-                    <div id="gameInputContainer" class="gameInputContainer">
-                        <textarea id="pgn" class="white" cols="30" rows="10" spellcheck="false"
-                            placeholder="Enter PGN..."></textarea>
-                    </div>
+                    <div id="top-controls-wrapper">
+                        <div id="load-type-dropdown-container">
+                            <select id="load-type-dropdown">
+                                <option value="pgn">PGN</option>
+                                <option value="chesscom">Chess.com</option>
+                                <option value="lichess">Lichess.org</option>
+                                <option value="json">JSON</option>
+                            </select>
+                        </div>
 
-                    <div id="gameInputContainer2" class="gameInputContainer">
-                        <textarea id="chess-site-username" class="white" spellcheck="false" maxlength="48"
-                            placeholder="Username..."></textarea>
-                        <button id="fetch-account-games-button" class="usernameVerifyBtn">
-                            <i class="usernameVerifyBtnIcon fa-solid fa-arrow-right contol-icons"
-                                style="color: var(--text-main)"></i>
-                        </button>
+                        <div id="inputs-wrapper">
+                            <div id="gameInputContainer" class="gameInputContainer">
+                                <textarea id="pgn" class="white" cols="30" rows="10" spellcheck="false"
+                                    placeholder="Enter PGN..."></textarea>
+                            </div>
+
+                            <div id="gameInputContainer2" class="gameInputContainer2">
+                                <textarea id="chess-site-username" class="white" spellcheck="false" maxlength="48"
+                                    placeholder="Username..."></textarea>
+                                <button id="fetch-account-games-button" class="usernameVerifyBtn">
+                                    <i class="usernameVerifyBtnIcon fa-solid fa-arrow-right contol-icons"
+                                        style="color: var(--text-main)"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <button id="review-button" class="analyse">
