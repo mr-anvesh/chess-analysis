@@ -5,6 +5,5 @@ export interface ParseRequestBody {
 }
 
 export interface ReportRequestBody {
-    positions?: EvaluatedPosition[],
-    captchaToken?: string
+    positions?: EvaluatedPosition[]
 }

@@ -24,6 +24,8 @@ app.get("/privacy", async (req, res) => {
     res.sendFile(path.resolve("src/public/pages/privacy/index.html"));
 });
 
-app.listen(process.env.PORT, () => {
-    console.log("Server running.");
+const port = process.env.PORT || "3000";
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}.`);
 });

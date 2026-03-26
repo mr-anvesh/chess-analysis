@@ -18,9 +18,6 @@ This project is currently closed to further contributions - we are working on re
 - Run `npm i` to install all of the necessary dependencies.
 - Create a file called `.env` in the root directory of the project.
 - Choose a port for the webserver by adding `PORT=<some port>` to the file.
-- If you want to use a CAPTCHA:
-    - Add your client secret as `RECAPTCHA_SECRET=<secret>` to the .env file
-    - Open `src/public/pages/report/index.html`, find `data-sitekey` and replace the value with your reCAPTCHA public site key
 - Run `npm start` to compile TypeScript and start the webserver.
 
 ### NPM Scripts
@@ -36,9 +33,6 @@ This project is currently closed to further contributions - we are working on re
 - Download the source code using `git clone` or download as ZIP.
 - Open the root directory of the project in a terminal.
 - Create a file called `.env` in the root directory of the project.
-- If you want to use a CAPTCHA:
-    - Add your client secret as `RECAPTCHA_SECRET=<secret>` to the .env file
-    - Open `src/public/pages/report/index.html`, find `data-sitekey` and replace the value with your reCAPTCHA public site key
 - Run `sudo docker build . -t chess-analysis` to build the image
 
 ### Start a Docker container with the chess-analysis image

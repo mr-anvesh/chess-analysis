@@ -10,8 +10,8 @@ COPY . .
 RUN npm install -g typescript
 RUN npm i
 
-ENV PORT 80
+ENV PORT 3000
 
-EXPOSE 80/tcp
+EXPOSE 3000/tcp
 
 ENTRYPOINT ["npm", "start"]

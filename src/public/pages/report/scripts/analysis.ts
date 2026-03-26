@@ -25,10 +25,7 @@ function logAnalysisError(message: string) {
 }
 
 async function evaluate() {
-    // Remove and reset CAPTCHA, remove report cards, display progress bar
-    $(".g-recaptcha").css("display", "none");
-    grecaptcha.reset();
-
+    // Reset UI state for a fresh analysis
     $("#report-cards").css("display", "none");
     $("#evaluation-progress-bar").css("display", "none");
 
@@ -174,17 +171,13 @@ async function evaluate() {
 
             logAnalysisInfo("Evaluation complete.");
             $("#evaluation-progress-bar").val(100);
-            $(".g-recaptcha").css("display", "inline");
             if(!document.hasFocus()){
                 let snd = new Audio("static/media/ping.mp3");
                 snd.play();
             }
-            $("#secondary-message").html(
-                "Please complete the CAPTCHA to continue.",
-            );
 
             evaluatedPositions = positions;
-            ongoingEvaluation = false;
+            void report();
 
             return;
         }
@@ -295,9 +288,6 @@ function loadReportCards() {
 }
 
 async function report() {
-    // Remove CAPTCHA
-    
-    $(".g-recaptcha").css("display", "none");
     $("#secondary-message").html("");
     $("#evaluation-progress-bar").attr("value", null);
     logAnalysisInfo("Generating report...");
@@ -317,7 +307,6 @@ async function report() {
                     }
                     return pos;
                 }),
-                captchaToken: grecaptcha.getResponse() || "none",
             }),
         });
 
@@ -332,6 +321,7 @@ async function report() {
         // Set report results to results given by server
         reportResults = report.results!;
         $("#status-message").css("display", "none");
+        ongoingEvaluation = false;
         loadReportCards();
     } catch {
         return logAnalysisError("Failed to generate report.");

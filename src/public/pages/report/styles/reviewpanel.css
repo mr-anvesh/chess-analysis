@@ -465,16 +465,6 @@
 }
 
 /*
-    RECAPTCHA COMPONENT
-*/
-.g-recaptcha {
-    display: none;
-    margin-top: 0px;
-    transform: scale(0.9);
-    transition-duration: 0.3s;
-}
-
-/*
     ANALYSIS SECONDARY MESSAGE
 */
 #secondary-message {

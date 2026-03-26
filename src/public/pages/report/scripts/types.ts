@@ -1,8 +1,3 @@
-declare class grecaptcha {
-    static reset(): void;
-    static getResponse(): string;
-}
-
 interface Profile {
     username: string,
     rating: string,
