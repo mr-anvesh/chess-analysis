@@ -260,3 +260,6 @@ $(window).on("keydown", event => {
 });
 
 $("#game-select-menu-container").load("/static/pages/report/gameselect.html", registerModalEvents);
+
+// Trigger initial state
+loadTypeDropdown.trigger("input");
