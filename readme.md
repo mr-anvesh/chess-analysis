@@ -1,43 +1,89 @@
-# Chess Game Analysis Tool
+---
+title: 'Chess Analysis'
+description: 'A chess game analysis platform that classifies moves, detects openings, and generates detailed accuracy reports using engine evaluation.'
+image: '/project/chess-analysis.jpeg'
+technologies:
+  [
+    'TypeScript',
+    'Node.js',
+    'Express',
+    'Chess.js',
+    'PGN Parser',
+    'Stockfish',
+    'HTML',
+    'CSS',
+    'Docker',
+    'Vercel',
+  ]
+github: 'https://github.com/mr-anvesh/chess-analysis'
+live: 'https://chess-analysis.anvesh.dev'
+timeline: '1 month'
+role: 'Full Stack'
+team: 'Solo'
+status: 'completed'
+featured: true
+challenges:
+  - 'Accurate move classification across edge cases'
+  - 'Brilliant move detection with sacrifice validation'
+  - 'Engine line evaluation and cutoff scoring'
+  - 'Opening book integration with PGN parsing'
+  - 'Real-time board rendering and eval bar sync'
+learnings:
+  - 'Chess engine integration and evaluation scoring'
+  - 'Move classification logic with centipawn thresholds'
+  - 'PGN parsing and virtual board simulation'
+  - 'Full-stack TypeScript project architecture'
+  - 'Visual report design for game analysis'
+isPublished: true
+---
 
-Generate classifications for your Chess moves, for free.
-<br><br>
-Enter a game by its PGN or pick a game from your Chess.com / Lichess.org account and have it analysed so that you can see where your mistakes and brilliancies are.
+# Chess Analysis
 
-**ANNOUNCEMENT**<br>
-This project is currently closed to further contributions - we are working on rebuilding the website from the ground up :)
+## Overview
+A chess game analysis platform that parses PGN game data, simulates positions with a virtual board, evaluates moves via a chess engine, and generates detailed per-move reports — classifying each move and computing accuracy scores for both players.
 
-## Running locally
-### Prerequisites
-- Node.js 20.x runtime or later.
-- TypeScript package installed globally.
+## What Users Can Do
+- **Analyse Games**: Paste a PGN to trigger move-by-move engine analysis with classification and evaluation.
+- **Review the Report**: Navigate through an interactive board replay with an eval bar, eval graph, and engine suggestions.
+- **Understand Accuracy**: See overall accuracy scores and a full breakdown of move classifications (Brilliant, Great, Best, Excellent, Good, Inaccuracy, Mistake, Blunder).
 
-### Starting application
-- Download the source code using `git clone` or download as ZIP.
-- Open the root directory of the project in a terminal.
-- Run `npm i` to install all of the necessary dependencies.
-- Create a file called `.env` in the root directory of the project.
-- Choose a port for the webserver by adding `PORT=<some port>` to the file.
-- Run `npm start` to compile TypeScript and start the webserver.
+## Why I Built This
+I built this to deeply understand how chess engines evaluate positions and how platforms like Chess.com generate their game reports:
+- Existing tools are black-box — I wanted to build the classification logic from scratch.
+- It was an opportunity to explore engine integration, position analysis, and interactive frontend design.
 
-### NPM Scripts
-- `npm start` - Compiles TypeScript and starts the webserver.
-- `npm run build` - Compiles TypeScript.
-- `npm run test` - Generates reports from some sample evaluations for classification testing at `src/test/reports`.
+## Tech Stack
+TypeScript
+Node.js
+Express
+Chess.js
+PGN Parser
+Stockfish (engine evaluation)
+HTML / CSS
+Docker
+Vercel
 
-## Running in Docker
-### Prerequisites
-- Docker installed on the server
+## Move Classification System
+Each move is classified based on evaluation loss relative to the engine's top line:
 
-### Build a Docker image
-- Download the source code using `git clone` or download as ZIP.
-- Open the root directory of the project in a terminal.
-- Create a file called `.env` in the root directory of the project.
-- Run `sudo docker build . -t chess-analysis` to build the image
+| Classification | Description |
+|---|---|
+| **Brilliant** | Sacrifice of a non-pawn piece that is tactically sound |
+| **Great** | Only move to recover from a blunder |
+| **Best** | Matches the engine's top move |
+| **Excellent** | Minimal evaluation loss |
+| **Good** | Small evaluation loss |
+| **Inaccuracy** | Moderate evaluation loss |
+| **Mistake** | Significant evaluation loss |
+| **Blunder** | Large evaluation loss or missed mate |
+| **Book** | Named opening theory move |
+| **Forced** | Only legal move in the position |
 
-### Start a Docker container with the chess-analysis image
-- Run `sudo docker run -d -P chess-analysis`
-- If you wish to choose the port instead of Docker choosing one for you, replace `-P` with `-p <port>:80`
+## After Launch and Impact
+- Built a full move classification pipeline from PGN parsing through engine evaluation to report generation.
+- Implemented brilliant move detection with sacrifice and pin validation logic.
+- Delivered an interactive frontend with board replay, eval bar, eval graph, and engine line suggestions.
+- Deepened understanding of chess engine scoring, positional analysis, and TypeScript full-stack architecture.
 
-## Support the Project
-If you find this tool useful and would like to support its development, any contributions are greatly appreciated ❤️
+## Future Plans
+- Project Completed
