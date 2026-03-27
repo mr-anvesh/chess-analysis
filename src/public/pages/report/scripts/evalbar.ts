@@ -34,13 +34,9 @@ function setEvalTextVisible(visiblePlayer: "white" | "black") {
     if (visiblePlayer === "white") {
         whiteEvalText.setAttribute("visibility", boardFlipped ? "hidden" : "visible");
         blackEvalText.setAttribute("visibility", boardFlipped ? "visible" : "hidden");
-        whiteEvalText.setAttribute("fill", boardFlipped ? "#fff" : "#000");
-        blackEvalText.setAttribute("fill", boardFlipped ? "#000" : "#fff");
     } else {
         whiteEvalText.setAttribute("visibility", boardFlipped ? "visible" : "hidden");
         blackEvalText.setAttribute("visibility", boardFlipped ? "hidden" : "visible");
-        whiteEvalText.setAttribute("fill", boardFlipped ? "#000" : "#fff");
-        blackEvalText.setAttribute("fill", boardFlipped ? "#fff" : "#000");
     }
 }
 
@@ -84,16 +80,19 @@ async function drawEvaluationBar(evaluation: Evaluation, boardFlipped: boolean, 
         setEvalTextVisible("black");
     }
 
-    // Fill evalbar with isBoardFlipped
+    // Fill rects based on board flip
     if (boardFlipped) {
-        whiteEvalText.setAttribute("fill", "#fff");
-        blackEvalText.setAttribute("fill", "#000");
         whiteRect.setAttribute("fill", "#000000");
         blackRect.setAttribute("fill", "#ffffff");
     } else {
-        whiteEvalText.setAttribute("fill", "#000");
-        blackEvalText.setAttribute("fill", "#fff");
         whiteRect.setAttribute("fill", "#ffffff");
         blackRect.setAttribute("fill", "#000000");
     }
+
+    // whiteEvalText sits near the bottom (y=720), blackEvalText near the top (y=20).
+    // Text colour must contrast with the rect occupying that corner.
+    // Bottom corner: white rect when boardFlipped=false, black rect when boardFlipped=true.
+    // Top corner:    black rect when boardFlipped=false, white rect when boardFlipped=true.
+    whiteEvalText.setAttribute("fill", boardFlipped ? "#fff" : "#000");
+    blackEvalText.setAttribute("fill", boardFlipped ? "#000" : "#fff");
 }
